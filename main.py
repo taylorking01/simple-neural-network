@@ -1,6 +1,7 @@
 import nnfs
 from nnfs.datasets import spiral_data
 nnfs.init()
+import numpy as np
 from Layer_Dense import Layer_Dense
 from Activation_ReLU import Activation_ReLU
 from Activation_Softmax import Activation_Softmax
@@ -26,3 +27,10 @@ def main():
 
     loss = loss_function.calculate(a2.output, y)
     print("Loss: ", loss)
+
+    predictions = np.argmax(a2.output, axis=1)
+    if len(y.shape) == 2:
+        y = np.argmax(y, axis = 1)
+    accuracy = np.mean(predictions == y)
+
+    print("Accuracy: ", accuracy)
