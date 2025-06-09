@@ -13,6 +13,8 @@ def main():
     
     d2 = Layer_Dense(3,12)
     a2 = Activation_Softmax()
+
+    loss_function = Loss_CategoricalCrossEntropy()
     
     d1.forward(X)
     a1.forward(d1.output)
@@ -21,3 +23,6 @@ def main():
     a2.forward(d2.output)
     
     print(a2.output[:5])
+
+    loss = loss_function.calculate(a2.output, y)
+    print("Loss: ", loss)
