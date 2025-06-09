@@ -4,6 +4,7 @@ nnfs.init()
 from Layer_Dense import Layer_Dense
 from Activation_ReLU import Activation_ReLU
 from Activation_Softmax import Activation_Softmax
+from Loss_CategoricalCrossEntropy import Loss_CategoricalCrossEntropy
 
 def main():
     X, y = spiral_data(samples=100, classes=3)
